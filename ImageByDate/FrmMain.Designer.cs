@@ -87,6 +87,7 @@
             this.txtSourceDirectory.Name = "txtSourceDirectory";
             this.txtSourceDirectory.Size = new System.Drawing.Size(416, 20);
             this.txtSourceDirectory.TabIndex = 0;
+            this.txtSourceDirectory.TextChanged += new System.EventHandler(this.txtSourceDirectory_TextChanged);
             // 
             // lblSourceDirectory
             // 

@@ -822,5 +822,15 @@ namespace ImageByDate
             lblTotalProgressStats.Text = GetProgressText();
             btnReset.Enabled = false;
         }
+
+        private void txtSourceDirectory_TextChanged(object sender, EventArgs e)
+        {
+            if (Directory.Exists(txtSourceDirectory.Text))
+            {
+                fbdSourceDirectory.SelectedPath = txtSourceDirectory.Text;
+                GetFileListInSourceDirectory();
+                InitProgressMeters(sourceFiles.Count);
+            }
+        }
     }
 }
