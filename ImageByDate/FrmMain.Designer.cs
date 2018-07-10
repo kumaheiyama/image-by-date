@@ -51,27 +51,27 @@
             this.rdbMoveFiles = new System.Windows.Forms.RadioButton();
             this.rdbCopyFiles = new System.Windows.Forms.RadioButton();
             this.grpSettings = new System.Windows.Forms.GroupBox();
+            this.pnlDirectoryChoices = new System.Windows.Forms.Panel();
+            this.chkCreateYearFolder = new System.Windows.Forms.CheckBox();
+            this.chkCreateMonthFolder = new System.Windows.Forms.CheckBox();
+            this.chkCreateDayFolder = new System.Windows.Forms.CheckBox();
             this.chkUseMonthName = new System.Windows.Forms.CheckBox();
             this.chkIncludeFullDateInDayFolderName = new System.Windows.Forms.CheckBox();
-            this.chkCreateDayFolder = new System.Windows.Forms.CheckBox();
-            this.chkCreateMonthFolder = new System.Windows.Forms.CheckBox();
-            this.chkCreateYearFolder = new System.Windows.Forms.CheckBox();
+            this.pnlMoveOrCopy = new System.Windows.Forms.Panel();
             this.lblCopyOrMove = new System.Windows.Forms.Label();
+            this.pnlDirectoryCreationBase = new System.Windows.Forms.Panel();
+            this.txtBasenameRegexp = new System.Windows.Forms.TextBox();
+            this.lblBasenameRegexp = new System.Windows.Forms.Label();
             this.rbnNamebaseModifiedDate = new System.Windows.Forms.RadioButton();
             this.lblDirectoryCreationBase = new System.Windows.Forms.Label();
             this.rbnNamebaseFilename = new System.Windows.Forms.RadioButton();
-            this.txtBasenameRegexp = new System.Windows.Forms.TextBox();
-            this.lblBasenameRegexp = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpProcessdMoves = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.grpSettings.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.pnlDirectoryChoices.SuspendLayout();
+            this.pnlMoveOrCopy.SuspendLayout();
+            this.pnlDirectoryCreationBase.SuspendLayout();
+            this.grpProcessdMoves.SuspendLayout();
             this.SuspendLayout();
             // 
             // fbdSourceDirectory
@@ -251,9 +251,9 @@
             // 
             this.grpSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpSettings.Controls.Add(this.panel3);
-            this.grpSettings.Controls.Add(this.panel2);
-            this.grpSettings.Controls.Add(this.panel1);
+            this.grpSettings.Controls.Add(this.pnlDirectoryChoices);
+            this.grpSettings.Controls.Add(this.pnlMoveOrCopy);
+            this.grpSettings.Controls.Add(this.pnlDirectoryCreationBase);
             this.grpSettings.Controls.Add(this.lblSourceDirectory);
             this.grpSettings.Controls.Add(this.txtSourceDirectory);
             this.grpSettings.Controls.Add(this.btnSourceDirectory);
@@ -266,6 +266,57 @@
             this.grpSettings.TabIndex = 15;
             this.grpSettings.TabStop = false;
             this.grpSettings.Text = "Settings";
+            // 
+            // pnlDirectoryChoices
+            // 
+            this.pnlDirectoryChoices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlDirectoryChoices.Controls.Add(this.chkCreateYearFolder);
+            this.pnlDirectoryChoices.Controls.Add(this.chkCreateMonthFolder);
+            this.pnlDirectoryChoices.Controls.Add(this.chkCreateDayFolder);
+            this.pnlDirectoryChoices.Controls.Add(this.chkUseMonthName);
+            this.pnlDirectoryChoices.Controls.Add(this.chkIncludeFullDateInDayFolderName);
+            this.pnlDirectoryChoices.Location = new System.Drawing.Point(9, 191);
+            this.pnlDirectoryChoices.Name = "pnlDirectoryChoices";
+            this.pnlDirectoryChoices.Size = new System.Drawing.Size(450, 46);
+            this.pnlDirectoryChoices.TabIndex = 27;
+            // 
+            // chkCreateYearFolder
+            // 
+            this.chkCreateYearFolder.AutoSize = true;
+            this.chkCreateYearFolder.Checked = true;
+            this.chkCreateYearFolder.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCreateYearFolder.Location = new System.Drawing.Point(6, 3);
+            this.chkCreateYearFolder.Name = "chkCreateYearFolder";
+            this.chkCreateYearFolder.Size = new System.Drawing.Size(115, 17);
+            this.chkCreateYearFolder.TabIndex = 15;
+            this.chkCreateYearFolder.Text = "Create year folder?";
+            this.chkCreateYearFolder.UseVisualStyleBackColor = true;
+            this.chkCreateYearFolder.CheckedChanged += new System.EventHandler(this.chkCreateYearFolder_CheckedChanged);
+            // 
+            // chkCreateMonthFolder
+            // 
+            this.chkCreateMonthFolder.AutoSize = true;
+            this.chkCreateMonthFolder.Location = new System.Drawing.Point(127, 3);
+            this.chkCreateMonthFolder.Name = "chkCreateMonthFolder";
+            this.chkCreateMonthFolder.Size = new System.Drawing.Size(124, 17);
+            this.chkCreateMonthFolder.TabIndex = 16;
+            this.chkCreateMonthFolder.Text = "Create month folder?";
+            this.chkCreateMonthFolder.UseVisualStyleBackColor = true;
+            this.chkCreateMonthFolder.CheckedChanged += new System.EventHandler(this.chkCreateMonthFolder_CheckedChanged);
+            // 
+            // chkCreateDayFolder
+            // 
+            this.chkCreateDayFolder.AutoSize = true;
+            this.chkCreateDayFolder.Checked = true;
+            this.chkCreateDayFolder.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCreateDayFolder.Location = new System.Drawing.Point(257, 3);
+            this.chkCreateDayFolder.Name = "chkCreateDayFolder";
+            this.chkCreateDayFolder.Size = new System.Drawing.Size(112, 17);
+            this.chkCreateDayFolder.TabIndex = 17;
+            this.chkCreateDayFolder.Text = "Create day folder?";
+            this.chkCreateDayFolder.UseVisualStyleBackColor = true;
+            this.chkCreateDayFolder.CheckedChanged += new System.EventHandler(this.chkCreateDayFolder_CheckedChanged);
             // 
             // chkUseMonthName
             // 
@@ -292,42 +343,17 @@
             this.chkIncludeFullDateInDayFolderName.Text = "Include full date in day folder name";
             this.chkIncludeFullDateInDayFolderName.UseVisualStyleBackColor = true;
             // 
-            // chkCreateDayFolder
+            // pnlMoveOrCopy
             // 
-            this.chkCreateDayFolder.AutoSize = true;
-            this.chkCreateDayFolder.Checked = true;
-            this.chkCreateDayFolder.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkCreateDayFolder.Location = new System.Drawing.Point(257, 3);
-            this.chkCreateDayFolder.Name = "chkCreateDayFolder";
-            this.chkCreateDayFolder.Size = new System.Drawing.Size(112, 17);
-            this.chkCreateDayFolder.TabIndex = 17;
-            this.chkCreateDayFolder.Text = "Create day folder?";
-            this.chkCreateDayFolder.UseVisualStyleBackColor = true;
-            this.chkCreateDayFolder.CheckedChanged += new System.EventHandler(this.chkCreateDayFolder_CheckedChanged);
-            // 
-            // chkCreateMonthFolder
-            // 
-            this.chkCreateMonthFolder.AutoSize = true;
-            this.chkCreateMonthFolder.Location = new System.Drawing.Point(127, 3);
-            this.chkCreateMonthFolder.Name = "chkCreateMonthFolder";
-            this.chkCreateMonthFolder.Size = new System.Drawing.Size(124, 17);
-            this.chkCreateMonthFolder.TabIndex = 16;
-            this.chkCreateMonthFolder.Text = "Create month folder?";
-            this.chkCreateMonthFolder.UseVisualStyleBackColor = true;
-            this.chkCreateMonthFolder.CheckedChanged += new System.EventHandler(this.chkCreateMonthFolder_CheckedChanged);
-            // 
-            // chkCreateYearFolder
-            // 
-            this.chkCreateYearFolder.AutoSize = true;
-            this.chkCreateYearFolder.Checked = true;
-            this.chkCreateYearFolder.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkCreateYearFolder.Location = new System.Drawing.Point(6, 3);
-            this.chkCreateYearFolder.Name = "chkCreateYearFolder";
-            this.chkCreateYearFolder.Size = new System.Drawing.Size(115, 17);
-            this.chkCreateYearFolder.TabIndex = 15;
-            this.chkCreateYearFolder.Text = "Create year folder?";
-            this.chkCreateYearFolder.UseVisualStyleBackColor = true;
-            this.chkCreateYearFolder.CheckedChanged += new System.EventHandler(this.chkCreateYearFolder_CheckedChanged);
+            this.pnlMoveOrCopy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlMoveOrCopy.Controls.Add(this.lblCopyOrMove);
+            this.pnlMoveOrCopy.Controls.Add(this.rdbMoveFiles);
+            this.pnlMoveOrCopy.Controls.Add(this.rdbCopyFiles);
+            this.pnlMoveOrCopy.Location = new System.Drawing.Point(9, 100);
+            this.pnlMoveOrCopy.Name = "pnlMoveOrCopy";
+            this.pnlMoveOrCopy.Size = new System.Drawing.Size(450, 38);
+            this.pnlMoveOrCopy.TabIndex = 26;
             // 
             // lblCopyOrMove
             // 
@@ -337,6 +363,41 @@
             this.lblCopyOrMove.Size = new System.Drawing.Size(96, 13);
             this.lblCopyOrMove.TabIndex = 14;
             this.lblCopyOrMove.Text = "Copy or move files:";
+            // 
+            // pnlDirectoryCreationBase
+            // 
+            this.pnlDirectoryCreationBase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlDirectoryCreationBase.Controls.Add(this.txtBasenameRegexp);
+            this.pnlDirectoryCreationBase.Controls.Add(this.lblBasenameRegexp);
+            this.pnlDirectoryCreationBase.Controls.Add(this.rbnNamebaseModifiedDate);
+            this.pnlDirectoryCreationBase.Controls.Add(this.lblDirectoryCreationBase);
+            this.pnlDirectoryCreationBase.Controls.Add(this.rbnNamebaseFilename);
+            this.pnlDirectoryCreationBase.Location = new System.Drawing.Point(9, 142);
+            this.pnlDirectoryCreationBase.Name = "pnlDirectoryCreationBase";
+            this.pnlDirectoryCreationBase.Size = new System.Drawing.Size(450, 43);
+            this.pnlDirectoryCreationBase.TabIndex = 25;
+            // 
+            // txtBasenameRegexp
+            // 
+            this.txtBasenameRegexp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBasenameRegexp.Enabled = false;
+            this.txtBasenameRegexp.Location = new System.Drawing.Point(266, 18);
+            this.txtBasenameRegexp.Name = "txtBasenameRegexp";
+            this.txtBasenameRegexp.Size = new System.Drawing.Size(181, 20);
+            this.txtBasenameRegexp.TabIndex = 23;
+            this.txtBasenameRegexp.Text = "([\\w\\s]+_)(?<year>[\\d]{4})(?<month>[\\d]{2})(?<day>[\\d]{2})([\\w\\d\\s]+)";
+            // 
+            // lblBasenameRegexp
+            // 
+            this.lblBasenameRegexp.AutoSize = true;
+            this.lblBasenameRegexp.Enabled = false;
+            this.lblBasenameRegexp.Location = new System.Drawing.Point(213, 21);
+            this.lblBasenameRegexp.Name = "lblBasenameRegexp";
+            this.lblBasenameRegexp.Size = new System.Drawing.Size(47, 13);
+            this.lblBasenameRegexp.TabIndex = 24;
+            this.lblBasenameRegexp.Text = "Regexp:";
             // 
             // rbnNamebaseModifiedDate
             // 
@@ -372,79 +433,18 @@
             this.rbnNamebaseFilename.UseVisualStyleBackColor = true;
             this.rbnNamebaseFilename.CheckedChanged += new System.EventHandler(this.rbnNamebaseFilename_CheckedChanged);
             // 
-            // txtBasenameRegexp
+            // grpProcessdMoves
             // 
-            this.txtBasenameRegexp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBasenameRegexp.Enabled = false;
-            this.txtBasenameRegexp.Location = new System.Drawing.Point(266, 18);
-            this.txtBasenameRegexp.Name = "txtBasenameRegexp";
-            this.txtBasenameRegexp.Size = new System.Drawing.Size(181, 20);
-            this.txtBasenameRegexp.TabIndex = 23;
-            this.txtBasenameRegexp.Text = "([\\w\\s]+_)(?<year>[\\d]{4})(?<month>[\\d]{2})(?<day>[\\d]{2})([\\w\\d\\s]+)";
-            // 
-            // lblBasenameRegexp
-            // 
-            this.lblBasenameRegexp.AutoSize = true;
-            this.lblBasenameRegexp.Enabled = false;
-            this.lblBasenameRegexp.Location = new System.Drawing.Point(213, 21);
-            this.lblBasenameRegexp.Name = "lblBasenameRegexp";
-            this.lblBasenameRegexp.Size = new System.Drawing.Size(47, 13);
-            this.lblBasenameRegexp.TabIndex = 24;
-            this.lblBasenameRegexp.Text = "Regexp:";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.txtBasenameRegexp);
-            this.panel1.Controls.Add(this.lblBasenameRegexp);
-            this.panel1.Controls.Add(this.rbnNamebaseModifiedDate);
-            this.panel1.Controls.Add(this.lblDirectoryCreationBase);
-            this.panel1.Controls.Add(this.rbnNamebaseFilename);
-            this.panel1.Location = new System.Drawing.Point(9, 142);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(450, 43);
-            this.panel1.TabIndex = 25;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.lblCopyOrMove);
-            this.panel2.Controls.Add(this.rdbMoveFiles);
-            this.panel2.Controls.Add(this.rdbCopyFiles);
-            this.panel2.Location = new System.Drawing.Point(9, 100);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(450, 38);
-            this.panel2.TabIndex = 26;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.chkCreateYearFolder);
-            this.panel3.Controls.Add(this.chkCreateMonthFolder);
-            this.panel3.Controls.Add(this.chkCreateDayFolder);
-            this.panel3.Controls.Add(this.chkUseMonthName);
-            this.panel3.Controls.Add(this.chkIncludeFullDateInDayFolderName);
-            this.panel3.Location = new System.Drawing.Point(9, 191);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(450, 46);
-            this.panel3.TabIndex = 27;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grpProcessdMoves.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.lstProcessedMoves);
-            this.groupBox1.Location = new System.Drawing.Point(12, 263);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(465, 114);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Processed moves:";
+            this.grpProcessdMoves.Controls.Add(this.lstProcessedMoves);
+            this.grpProcessdMoves.Location = new System.Drawing.Point(12, 263);
+            this.grpProcessdMoves.Name = "grpProcessdMoves";
+            this.grpProcessdMoves.Size = new System.Drawing.Size(465, 114);
+            this.grpProcessdMoves.TabIndex = 16;
+            this.grpProcessdMoves.TabStop = false;
+            this.grpProcessdMoves.Text = "Processed moves:";
             // 
             // btnReset
             // 
@@ -464,7 +464,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 462);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpProcessdMoves);
             this.Controls.Add(this.grpSettings);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnClose);
@@ -473,16 +473,17 @@
             this.Controls.Add(this.pgrTotalProgress);
             this.MinimumSize = new System.Drawing.Size(505, 501);
             this.Name = "frmImagesByDate";
-            this.Text = "Images By Date v0.7";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Images By Date v0.8";
             this.grpSettings.ResumeLayout(false);
             this.grpSettings.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.pnlDirectoryChoices.ResumeLayout(false);
+            this.pnlDirectoryChoices.PerformLayout();
+            this.pnlMoveOrCopy.ResumeLayout(false);
+            this.pnlMoveOrCopy.PerformLayout();
+            this.pnlDirectoryCreationBase.ResumeLayout(false);
+            this.pnlDirectoryCreationBase.PerformLayout();
+            this.grpProcessdMoves.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,10 +520,10 @@
         private System.Windows.Forms.RadioButton rbnNamebaseFilename;
         private System.Windows.Forms.Label lblDirectoryCreationBase;
         private System.Windows.Forms.RadioButton rbnNamebaseModifiedDate;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel pnlDirectoryChoices;
+        private System.Windows.Forms.Panel pnlMoveOrCopy;
+        private System.Windows.Forms.Panel pnlDirectoryCreationBase;
+        private System.Windows.Forms.GroupBox grpProcessdMoves;
         private System.Windows.Forms.Button btnReset;
     }
 }

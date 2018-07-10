@@ -142,6 +142,7 @@ namespace ImageByDate
 
                 if (result == DialogResult.Yes)
                 {
+                    totalBgWorker.Dispose();
                     Environment.Exit(0);
                 }
             }
@@ -683,7 +684,7 @@ namespace ImageByDate
             if (!CheckSourcePath()) return;
 
             string filesMessage = String.Empty;
-            sourceFiles = new SourceFile[0];
+            sourceFiles = new List<SourceFile>();
             try
             {
                 var directoryPaths = Directory.GetFiles(sourceDirectory);
